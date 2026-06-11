@@ -6,7 +6,12 @@ public class PlayerScore : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("You've bumped into thing many times: " + scoreCount);
-        scoreCount++;
+        if (collision.gameObject.tag != "Obstacle")
+        {
+            Debug.Log("You've bumped into thing many times: " + scoreCount);
+            scoreCount++;
+        }
+
+        Debug.Log("You've already got the tag");
     }
 }

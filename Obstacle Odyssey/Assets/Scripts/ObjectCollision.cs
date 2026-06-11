@@ -4,6 +4,11 @@ public class ObjectCollision : MonoBehaviour
 {
     private void OnCollisionEnter(Collision collision)
     {
-        GetComponent<MeshRenderer>().material.color = Color.purple;
+        if (collision.gameObject.tag == "Player")
+        {
+            GetComponent<MeshRenderer>().material.color = Color.purple;
+
+            gameObject.tag = "Obstacle";
+        }
     }
 }

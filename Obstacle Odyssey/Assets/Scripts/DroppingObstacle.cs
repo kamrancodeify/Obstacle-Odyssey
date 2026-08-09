@@ -4,15 +4,15 @@ public class DroppingObstacle : MonoBehaviour
 {
     [SerializeField] private float dropDelay = 3f;
     MeshRenderer meshRenderer;
-    Rigidbody rigidbody;
+    Rigidbody droppingRB;
 
     void Start()
     {
         meshRenderer = GetComponent<MeshRenderer>();
-        rigidbody = GetComponent<Rigidbody>();
+        droppingRB = GetComponent<Rigidbody>();
 
         meshRenderer.enabled = false;
-        rigidbody.useGravity = false;
+        droppingRB.useGravity = false;
     }
 
     void Update()
@@ -20,7 +20,7 @@ public class DroppingObstacle : MonoBehaviour
         if (Time.time > dropDelay)
         {
             meshRenderer.enabled = true;
-            rigidbody.useGravity = true;
+            droppingRB.useGravity = true;
         }
     }
 }
